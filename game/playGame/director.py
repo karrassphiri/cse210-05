@@ -2,10 +2,10 @@
 
 class Director:
 
-  """
-  Director class is going to manage all the parts of the game
+    """
+    Director class is going to manage all the parts of the game
 
-  Attributes:
+    Attributes:
 
-  Author:
-  """
+    Author: Samuel Beltran
+    """
