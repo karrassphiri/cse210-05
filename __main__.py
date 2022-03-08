@@ -4,7 +4,7 @@ from game.gameLogistics.playerActions import PlayerActions
 from game.gameLogistics.videoServices import VideoServices
 from game.playGame.director import Director
 from game.character.characterStorage import CharacterStorage
-from game.character.character import Character
+from game.character.player import Player
 from game.character.banner import Banner
 
 
@@ -21,8 +21,8 @@ def main():
     videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
 
     """ creates the character: """
-    playerOne = Character()
-    playerTwo = Character()
+    playerOne = Player()
+    playerTwo = Player()
     bannerOne = Banner()
     bannerTwo = Banner()
 
