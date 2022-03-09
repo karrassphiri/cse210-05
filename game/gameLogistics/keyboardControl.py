@@ -7,4 +7,4 @@ class KeyboardControl(Action):
         self._character_storage = charStorage
         
     def execute(self):
-        print("all the behaviors of the keyboard will be executed")
+        print("from keyboardControl: all the behaviors of the keyboard will be executed")

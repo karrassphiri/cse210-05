@@ -6,4 +6,4 @@ class VideoControl(Action):
         self._videoServices = videoServices
 
     def execute(self):
-        print("All the behaviors of the video will be executed")    
+        print("from videoControl : All the behaviors of the video will be executed")    
