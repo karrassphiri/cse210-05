@@ -22,15 +22,10 @@ def main():
     script = Script()
     videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
     """ creates the character: """
-    """ playerOne = Player("@","playerOne",210,210,15,15)
+    playerOne = Player("@","playerOne",210,210,15,15)
     playerTwo = Player("@","playerTwo",410,410,15,15)
     bannerOne = Banner()
-    bannerTwo = Banner() """
-
-    playerOne = "player1"
-    playerTwo = "player2"
-    bannerOne = "banner1"
-    bannerTwo = "banner2"
+    bannerTwo = Banner()
 
     storage.add_new_character("player_one",playerOne)
     storage.add_new_character("player_two",playerTwo)
