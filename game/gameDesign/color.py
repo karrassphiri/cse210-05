@@ -5,5 +5,5 @@ class Color:
 
   Attributes:
 
-  Author:
+  Author: Yami
   """
