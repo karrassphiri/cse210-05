@@ -21,9 +21,10 @@ def main():
     storage = CharacterStorage()
     script = Script()
     videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
+
     """ creates the character: """
     playerOne = Player("@","playerOne",210,210,15,15)
-    playerTwo = Player("@","playerTwo",410,410,15,15)
+    playerTwo = Player("@","playerTwo",610,210,15,15)
     bannerOne = Banner()
     bannerTwo = Banner()
 
@@ -31,12 +32,14 @@ def main():
     storage.add_new_character("player_two",playerTwo)
     storage.add_new_character("banner_one",bannerOne)
     storage.add_new_character("banner_two",bannerTwo)
+
+    #print(storage)
     script.add_action("input",KeyboardControl(storage))
     script.add_action("update",ControlPlayers(storage))
-    script.add_action("output",VideoControl(videoServices))
+    script.add_action("output",VideoControl(videoServices,storage))
 
     director = Director(videoServices,script)
-    director.start_game(storage)
+    director.start_game()
 
 
 main()

@@ -1,5 +1,3 @@
-
-
 class Position:
   """
   This class will set the position of a character 
@@ -21,16 +19,16 @@ class Position:
     self._scale = scale
 
 
-  def set_X_position(self, x):
+  def set_x_position(self, x):
     self._x = x
 
-  def get_X_position(self):
+  def get_x_position(self):
     return self._x
 
-  def set_Y_position(self, y):
+  def set_y_position(self, y):
     self._y = y
 
-  def get_Y_positon(self):
+  def get_y_position(self):
     return self._y  
   
 

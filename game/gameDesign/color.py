@@ -1,5 +1,3 @@
-
-
 class Color:
 
   """
@@ -14,7 +12,7 @@ class Color:
   Author: Yami
   """
 
-  def _init_(self, red, green, blue, alpha=255):
+  def __init__(self, red, green, blue, alpha=255):
     """
     Constructs a new Color using the specified red, green, blue and alpha values.
     """

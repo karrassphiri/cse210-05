@@ -11,13 +11,13 @@ class Director():
         self._video_service = videoService
         self._script = script
     
-    def start_game(self,storage):
+    def start_game(self):
 
         self._video_service.open_window()
 
         while self._video_service.is_playing():
-            self.__execute_script("input")   
-            self.__execute_script("update")
+            """ self.__execute_script("input")   
+            self.__execute_script("update") """
             self.__execute_script("output")
         self._video_service.close_window()
     

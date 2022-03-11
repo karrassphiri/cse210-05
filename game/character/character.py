@@ -1,8 +1,8 @@
 from game.gameDesign.color import Color
 from game.position.position import Position
+import random
 
-
-class Character (Position):
+class Character(Position):
     """ This will create a character
 
     Attributes: 
@@ -15,10 +15,10 @@ class Character (Position):
     Author: Yami 
     """
 
-    def __init__(self, appearance, x, y, fontSize, scale, color=""):
+    def __init__(self,appearance,x,y,fontSize,scale,color=""):
 
+        super().__init__(x, y, scale)
         self._appearance = appearance
-        self._position = Position.__init__(self, x, y, scale)
         self._fontSize = fontSize
         self._color = color
 
@@ -40,4 +40,4 @@ class Character (Position):
         return self._fontSize
 
     def _set_character_color(self):
-        return Color().to_tuple()
+        return Color(random.randint(0,255),random.randint(0,255),random.randint(0,255)).to_tuple()
