@@ -17,7 +17,8 @@ class Director():
 
         while self._video_service.is_playing():
             """ self.__execute_script("input")   
-            self.__execute_script("update") """
+            """
+            self.__execute_script("update")
             self.__execute_script("output")
         self._video_service.close_window()
     

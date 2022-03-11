@@ -41,7 +41,10 @@ class VideoServices:
 
     def draw_character(self,item):
         """ This draws a character """
-        pyray.draw_text(item.get_appearance(),item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())
+        for i in item.get_appearance():
+            pyray.draw_text(i,item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())
+
+        #pyray.draw_text(item.get_appearance(),item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())
 
     def draw_all_characters(self,characters):
         """ This draws many characters """

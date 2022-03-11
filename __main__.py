@@ -25,17 +25,16 @@ def main():
     """ creates the character: """
     playerOne = Player("@","playerOne",210,210,15,15)
     playerTwo = Player("@","playerTwo",610,210,15,15)
-    bannerOne = Banner()
-    bannerTwo = Banner()
+    """ bannerOne = Banner()
+    bannerTwo = Banner() """
 
-    storage.add_new_character("player_one",playerOne)
-    storage.add_new_character("player_two",playerTwo)
-    storage.add_new_character("banner_one",bannerOne)
-    storage.add_new_character("banner_two",bannerTwo)
+    storage.add_new_character("playerOne",playerOne)
+    storage.add_new_character("playerTwo",playerTwo)
+    """ storage.add_new_character("banner_one",bannerOne)
+    storage.add_new_character("banner_two",bannerTwo) """
 
-    #print(storage)
     script.add_action("input",KeyboardControl(storage))
-    script.add_action("update",ControlPlayers(storage))
+    script.add_action("update",ControlPlayers(storage,CELL_SIZE))
     script.add_action("output",VideoControl(videoServices,storage))
 
     director = Director(videoServices,script)

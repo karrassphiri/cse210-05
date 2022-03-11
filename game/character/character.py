@@ -30,8 +30,8 @@ class Character(Position):
         return self._appearance
 
 
-    def set_appearance(self, appearance):
-        self._appearance = appearance
+    """ def set_appearance(self, appearance):
+        self._appearance = appearance """
 
     def get_color(self):
         return self._color
