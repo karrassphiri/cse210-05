@@ -7,4 +7,11 @@ class KeyboardControl(Action):
         self._character_storage = charStorage
         
     def execute(self):
-        print("from keyboardControl: all the behaviors of the keyboard will be executed")
+        
+        keyboard = Keyboard()
+        playerOne = self._character_storage.get_character("playerOne")[0]
+        #playerTwo = self._character_storage.get_character("playerTwo")[0]        
+        if keyboard.get_input() != "":
+            playerOne.set_direction(keyboard.get_input())
+
+        #playerTwo.set_direction(keyboard.get_direction())

@@ -10,4 +10,4 @@ class PlayersTrail:
         x = self._player.get_x_position()
         y = self._player.get_y_position()
 
-        return Player("*","trail",x,y,15,15)
+        return Player("*","trail",x,y,15,15,self._player.get_color())

@@ -8,7 +8,12 @@ class ControlPlayers(Action):
         self._cell_size = cellSize
 
     def execute(self):
-        actionsPlayerOne = PlayerActions(self._players,self._players.get_character("playerOne")[0],12)
-        actionsPlayerTwo = PlayerActions(self._players,self._players.get_character("playerTwo")[0],12)
-        actionsPlayerOne.movement()
-        actionsPlayerTwo.movement()
+        playerOne = self._players.get_character("playerOne")[0]
+        actionsPlayerOne = PlayerActions(self._players,playerOne,12)
+        #actionsPlayerTwo = PlayerActions(self._players,self._players.get_character("playerTwo")[0],12)
+        
+        #actionsPlayerOne.movement(playerOne.get_direction)
+        
+        actionsPlayerOne.movement(playerOne.get_direction())
+        
+        #actionsPlayerTwo.movement()
