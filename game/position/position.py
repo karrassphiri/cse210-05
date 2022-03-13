@@ -48,7 +48,7 @@ class Position:
     return: bool
     """
 
-    if characterA.get_X_position() == characterB.get_X_position() and characterA.get_Y_position() == characterB.get_Y_Position():
+    if characterA.get_x_position() == characterB.get_x_position() and characterA.get_y_position() == characterB.get_y_position():
       return True
 
   

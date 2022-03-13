@@ -1,5 +1,3 @@
-
-
 class GameOver:
 
   """
@@ -10,3 +8,10 @@ class GameOver:
 
   Author:
   """
+
+  def __init__(self,mainBanner):
+    self._main_banner = mainBanner
+
+  def game_over(self):
+    self._main_banner.set_message("Game Over!!")
+    return True

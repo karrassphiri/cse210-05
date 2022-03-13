@@ -15,21 +15,40 @@ HEIGHT = 600
 GAME_NAME = "CYCLE"
 FRAME = 12
 CELL_SIZE = 15
+FONT_SIZE = 15
+BLACK = (3,3,3,1)
+COLS = (WIDTH/CELL_SIZE)
+ROWS = (HEIGHT/CELL_SIZE)
+RED = (255,0,0,200)
 def main():
 
 
     storage = CharacterStorage()
     script = Script()
-    videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
+    videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE,True)
 
     """ creates the character: """
-    playerOne = Player("@","playerOne",210,210,15,15)
-    playerTwo = Player("@","playerTwo",610,210,15,15)
     """ bannerOne = Banner()
     bannerTwo = Banner() """
 
+    x = int((COLS/3)* CELL_SIZE)
+    y = int((ROWS/2)* CELL_SIZE)
+    mainBanner = Banner(x,int(HEIGHT/2),"",50,RED)
+    """ playerOne = Player("@","playerOne",x,y,CELL_SIZE,FONT_SIZE)
+    playerTwo = Player("@","playerTwo",x + (CELL_SIZE * 20),y,CELL_SIZE,FONT_SIZE)  """
+    
+    playerOneCollider = Player("o","playerOne",x,y+CELL_SIZE,CELL_SIZE,FONT_SIZE)
+    playerTwoCollider = Player("o","playerTwo",x + (CELL_SIZE * 20),y,CELL_SIZE,FONT_SIZE) 
+    playerOne = Player("@","playerOne",x,y,CELL_SIZE,FONT_SIZE)
+    playerTwo = Player("@","playerTwo",x + (CELL_SIZE * 20),y,CELL_SIZE,FONT_SIZE) 
+
+    storage.add_new_character("playerOne",playerOneCollider)
+    storage.add_new_character("playerOne",playerTwoCollider)
+    
     storage.add_new_character("playerOne",playerOne)
     storage.add_new_character("playerTwo",playerTwo)
+    storage.add_new_character("mainBanner",mainBanner)
+    
     """ storage.add_new_character("banner_one",bannerOne)
     storage.add_new_character("banner_two",bannerTwo) """
 
