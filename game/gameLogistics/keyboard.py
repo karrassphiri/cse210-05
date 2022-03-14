@@ -52,9 +52,9 @@ class Keyboard:
             self._player = 1
     
         if pyray.is_key_down(self._keys['j']):                    
-                self._axis = "x"
-                self._direction = "-"
-                self._player = 2
+            self._axis = "x"
+            self._direction = "-"
+            self._player = 2
 
         if pyray.is_key_down(self._keys['l']):
             self._axis = "x"
