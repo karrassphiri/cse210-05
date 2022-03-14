@@ -7,6 +7,7 @@ class PlayerActions():
         self._characters = characters
         self._player = player
         self._distance = distance
+        self._trail_appearance = "#"
         
     def get_players(self):
         return self._characters
@@ -61,7 +62,7 @@ class PlayerActions():
         if index > 1:         
             previous = self._characters.get_character(self._player.get_group_name())[index-1]
             current = self._characters.get_character(self._player.get_group_name())[index]
-            previous.set_appearance("*") 
+            previous.set_appearance(self._trail_appearance) 
             current.set_color(previous.get_color()) 
 
     def game_over(self,mainBanner):
@@ -76,3 +77,8 @@ class PlayerActions():
     def __player_lose_point(self,player,score):
         player.set_score(score)
         
+    def change_player_color(self,player,color):
+        player = self._characters.get_character(player.get_group_name())
+        for p in player:
+            if p.get_appearance() == self._trail_appearance:
+                p.set_color(color)

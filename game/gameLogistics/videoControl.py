@@ -18,6 +18,7 @@ class VideoControl(Action):
             self._videoServices.draw_all_characters(self._characters.get_character("playerOne"))
             self._videoServices.draw_all_characters(self._characters.get_character("playerTwo"))
             self._videoServices.draw_banner(self._characters.get_character("scoreBannerOne")[0])
+            self._videoServices.draw_banner(self._characters.get_character("scoreBannerTwo")[0])
         self._videoServices.stop_drawing()
     
     def change_game_state(self,state):

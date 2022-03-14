@@ -8,10 +8,32 @@ class KeyboardControl(Action):
         
     def execute(self):
         
-        keyboard = Keyboard()
+        """ keyboardOne = Keyboard()
+        keyboardTwo = Keyboard()
+        
         playerOne = self._character_storage.get_character("playerOne")[0]
-        #playerTwo = self._character_storage.get_character("playerTwo")[0]        
-        if keyboard.get_input() != "":
-            playerOne.set_direction(keyboard.get_input())
+        playerTwo = self._character_storage.get_character("playerTwo")[0]        
+        if keyboardOne.get_input(1) != "":
+            playerOne.set_direction(keyboardOne.get_input(1))
+            
+        if keyboardTwo.get_input_two(2) != "":    
+            playerTwo.set_direction(keyboardTwo.get_input_two(2)) """
 
-        #playerTwo.set_direction(keyboard.get_direction())
+        keyboard = Keyboard()
+    
+        playerOne = self._character_storage.get_character("playerOne")[0]
+        playerTwo = self._character_storage.get_character("playerTwo")[0]        
+        #print(keyboard.get_input(1) != "")
+        if keyboard.is_key_pressed():
+            keyboard.get_input()
+            
+            if keyboard.get_player() == 1:
+                playerOne.set_direction(keyboard.get_input())
+            if keyboard.get_player() == 2:
+                playerTwo.set_direction(keyboard.get_input())
+            #print(keyboard.get_input(2))
+            #playerOne.set_direction(keyboardOne.get_input(1))
+
+        
+        """ if keyboard.get_input(2) != "":    
+            playerTwo.set_direction(keyboard.get_input_two(2)) """

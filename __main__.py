@@ -28,7 +28,7 @@ def main():
 
     storage = CharacterStorage()
     script = Script()
-    videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE,True)
+    videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
 
     """ creates the character: """
     """ bannerOne = Banner()
@@ -39,15 +39,17 @@ def main():
     mainBanner = Banner(x,int(HEIGHT/2),"",50,RED)
     scoreBannerOne = Banner(0,0,"Player one: ",20,WHITE)
     scoreBannerOne.add_to_message(str(SCORE))
-    #scoreBannerTwo = Banner((COLS*12)-WIDTH,0,"Player two: "  + str(SCORE), 20, WHITE)
+    scoreBannerTwo = Banner(int((COLS*12)),0,"Player two: ", 20, WHITE)
+    scoreBannerTwo.add_to_message(str(SCORE))
 
     playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
-    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,"",SCORE) 
+    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,BLACK,SCORE) 
 
     storage.add_new_character("playerOne",playerOne)
     storage.add_new_character("playerTwo",playerTwo)
     storage.add_new_character("mainBanner",mainBanner)
     storage.add_new_character("scoreBannerOne",scoreBannerOne)
+    storage.add_new_character("scoreBannerTwo",scoreBannerTwo)
 
     script.add_action("input",KeyboardControl(storage))
     script.add_action("update",ControlPlayers(storage,CELL_SIZE))
