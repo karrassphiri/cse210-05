@@ -82,3 +82,8 @@ class PlayerActions():
         for p in player:
             if p.get_appearance() == self._trail_appearance:
                 p.set_color(color)
+    
+    """ def create_walls(self):
+        #print(self._player.get_x_position())
+        for i in range(self._player.get_x_position()):
+            print(i) """

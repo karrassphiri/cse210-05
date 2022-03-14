@@ -17,10 +17,12 @@ class KeyboardControl(Action):
                 playerOne.set_axis("y")
                 playerTwo.set_axis("y")
     
-        if keyboard.is_key_pressed():    
+        if keyboard.is_key_pressed():  
+            
             keyboard.get_input()
-            direction = keyboard.get_direction()+keyboard.get_axis()
 
+            direction = keyboard.get_direction()+keyboard.get_axis()
+            
             if keyboard.get_player() == 1:                
                 if playerOne.get_axis() != keyboard.get_axis():
                     playerOne.set_axis(keyboard.get_axis()) 

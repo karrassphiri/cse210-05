@@ -11,6 +11,11 @@ class ControlPlayers(Action):
 
     def execute(self):
 
+        """ window walls """
+        #walls = self._characterStorage.get_character("windowWalls")[0]
+        #wallsActions = PlayerActions(self._characterStorage,walls,15).create_walls()
+        #self._characterStorage.set_character
+
         """ Main banner """
         mainBanner = self._characterStorage.get_character("mainBanner")[0]
         whiteColor = (255,255,255,200)

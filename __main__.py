@@ -37,6 +37,19 @@ def main():
     scoreBannerTwo = Banner(int((COLS*12)),0,"Player two: ", 20, WHITE)
     scoreBannerTwo.add_to_message(str(SCORE))
 
+    for i in range(HEIGHT):
+        windowWalls = Banner(0,int(i*CELL_SIZE),"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+        
+        windowWalls = Banner(int(WIDTH-CELL_SIZE),int(i*CELL_SIZE),"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+
+    for i in range(WIDTH):
+        windowWalls = Banner(int(i*CELL_SIZE),CELL_SIZE,"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+        windowWalls = Banner(int(i*CELL_SIZE),int(HEIGHT-CELL_SIZE),"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+
     playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
     playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
 
@@ -45,7 +58,8 @@ def main():
     storage.add_new_character("mainBanner",mainBanner)
     storage.add_new_character("scoreBannerOne",scoreBannerOne)
     storage.add_new_character("scoreBannerTwo",scoreBannerTwo)
-
+    
+    
     script.add_action("input",KeyboardControl(storage))
     script.add_action("update",ControlPlayers(storage,CELL_SIZE))
     script.add_action("output",VideoControl(videoServices,storage))
