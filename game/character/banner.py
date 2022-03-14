@@ -15,15 +15,19 @@ class Banner(Position):
     self._message = message
     self._font_size = fontSize
     self._color = color
+    self._extra_text = ""
 
   def set_message(self,message):
     self._message = message
   
   def get_message(self):
-    return self._message
+    return self._message + self._extra_text
   
   def get_font_size(self):
     return self._font_size
 
   def get_color(self):
     return self._color
+
+  def add_to_message(self,text):
+    self._extra_text = text

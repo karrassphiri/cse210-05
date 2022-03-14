@@ -1,6 +1,6 @@
 from game.gameLogistics.playersTrail import PlayersTrail
 from game.gameOver.gameOver import GameOver
-
+from game.gameScore.score import Score
 class PlayerActions():
     
     def __init__(self,characters,player,distance):
@@ -66,4 +66,13 @@ class PlayerActions():
 
     def game_over(self,mainBanner):
         return GameOver(mainBanner).game_over()
-    
+
+    def lose_points(self,player,playerBanner):
+        scoreControler = Score(1)
+        score = scoreControler.lose_point(player.get_score())
+        playerBanner.add_to_message(str(score))
+        self.__player_lose_point(player,score)
+        
+    def __player_lose_point(self,player,score):
+        player.set_score(score)
+        

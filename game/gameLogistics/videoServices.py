@@ -59,7 +59,7 @@ class VideoServices:
         for x in range(0, self._width, self._cell_size):
             pyray.draw_line(x, 0, x, self._height, pyray.GRAY)
     
-    def draw_banner(self,banner):    
+    def draw_banner(self,banner):
         pyray.draw_text(banner.get_message(),banner.get_x_position(),banner.get_y_position(),banner.get_font_size(),banner.get_color())
         
         

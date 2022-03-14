@@ -17,9 +17,12 @@ FRAME = 12
 CELL_SIZE = 15
 FONT_SIZE = 15
 BLACK = (3,3,3,1)
+WHITE = (255,255,255,200)
 COLS = (WIDTH/CELL_SIZE)
 ROWS = (HEIGHT/CELL_SIZE)
 RED = (255,0,0,200)
+SCORE = 3
+
 def main():
 
 
@@ -34,16 +37,17 @@ def main():
     x = int((COLS/3)* CELL_SIZE)
     y = int((ROWS/2)* CELL_SIZE)
     mainBanner = Banner(x,int(HEIGHT/2),"",50,RED)
+    scoreBannerOne = Banner(0,0,"Player one: ",20,WHITE)
+    scoreBannerOne.add_to_message(str(SCORE))
+    #scoreBannerTwo = Banner((COLS*12)-WIDTH,0,"Player two: "  + str(SCORE), 20, WHITE)
 
-    playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK)
-    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE) 
+    playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
+    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,"",SCORE) 
 
     storage.add_new_character("playerOne",playerOne)
     storage.add_new_character("playerTwo",playerTwo)
     storage.add_new_character("mainBanner",mainBanner)
-    
-    """ storage.add_new_character("banner_one",bannerOne)
-    storage.add_new_character("banner_two",bannerTwo) """
+    storage.add_new_character("scoreBannerOne",scoreBannerOne)
 
     script.add_action("input",KeyboardControl(storage))
     script.add_action("update",ControlPlayers(storage,CELL_SIZE))
