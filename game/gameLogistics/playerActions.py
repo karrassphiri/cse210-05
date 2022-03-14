@@ -17,7 +17,7 @@ class PlayerActions():
         playerTrail = PlayersTrail(self._player)
         
         self.__insert_new_trail(self.__add_new_trail(playerTrail))
-
+        
         if direction == "x" or direction == "-x":
             if direction == "x":
                 self.__move_in_x_position(self._player,1)

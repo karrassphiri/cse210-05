@@ -25,14 +25,9 @@ SCORE = 3
 
 def main():
 
-
     storage = CharacterStorage()
     script = Script()
     videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
-
-    """ creates the character: """
-    """ bannerOne = Banner()
-    bannerTwo = Banner() """
 
     x = int((COLS/3)* CELL_SIZE)
     y = int((ROWS/2)* CELL_SIZE)
@@ -43,7 +38,7 @@ def main():
     scoreBannerTwo.add_to_message(str(SCORE))
 
     playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
-    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,BLACK,SCORE) 
+    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
 
     storage.add_new_character("playerOne",playerOne)
     storage.add_new_character("playerTwo",playerTwo)

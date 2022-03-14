@@ -8,32 +8,25 @@ class KeyboardControl(Action):
         
     def execute(self):
         
-        """ keyboardOne = Keyboard()
-        keyboardTwo = Keyboard()
-        
-        playerOne = self._character_storage.get_character("playerOne")[0]
-        playerTwo = self._character_storage.get_character("playerTwo")[0]        
-        if keyboardOne.get_input(1) != "":
-            playerOne.set_direction(keyboardOne.get_input(1))
-            
-        if keyboardTwo.get_input_two(2) != "":    
-            playerTwo.set_direction(keyboardTwo.get_input_two(2)) """
-
         keyboard = Keyboard()
     
         playerOne = self._character_storage.get_character("playerOne")[0]
         playerTwo = self._character_storage.get_character("playerTwo")[0]        
-        #print(keyboard.get_input(1) != "")
-        if keyboard.is_key_pressed():
-            keyboard.get_input()
-            
-            if keyboard.get_player() == 1:
-                playerOne.set_direction(keyboard.get_input())
-            if keyboard.get_player() == 2:
-                playerTwo.set_direction(keyboard.get_input())
-            #print(keyboard.get_input(2))
-            #playerOne.set_direction(keyboardOne.get_input(1))
 
-        
-        """ if keyboard.get_input(2) != "":    
-            playerTwo.set_direction(keyboard.get_input_two(2)) """
+        if playerOne.get_axis() == "" or playerTwo.get_axis() =="":
+                playerOne.set_axis("y")
+                playerTwo.set_axis("y")
+    
+        if keyboard.is_key_pressed():    
+            keyboard.get_input()
+            direction = keyboard.get_direction()+keyboard.get_axis()
+
+            if keyboard.get_player() == 1:                
+                if playerOne.get_axis() != keyboard.get_axis():
+                    playerOne.set_axis(keyboard.get_axis()) 
+                    playerOne.set_direction(direction)
+
+            if keyboard.get_player() == 2:
+                if playerTwo.get_axis() != keyboard.get_axis():
+                    playerTwo.set_axis(keyboard.get_axis()) 
+                    playerTwo.set_direction(direction)

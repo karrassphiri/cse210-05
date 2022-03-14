@@ -18,6 +18,7 @@ class Position:
     self._y = y
     self._scale = scale
     self._direction = ""
+    self._axis = ""
 
   def set_x_position(self, x):
     self._x = x
@@ -39,7 +40,11 @@ class Position:
 
     return Position(self._x, self._y)
 
+  def set_axis(self,axis):
+    self._axis = axis
 
+  def get_axis(self):
+    return self._axis
 
   def equals(self, characterA, characterB):
     """
@@ -47,10 +52,6 @@ class Position:
 
     return: bool
     """
-
-    """ if characterA.get_x_position()+15 == characterB.get_x_position() and characterA.get_y_position()+15 == characterB.get_y_position():
-      return True """
-
     aCharX = characterA.get_x_position()
     aCharY = characterA.get_y_position()
     
