@@ -39,11 +39,17 @@ class Colission:
 
     def __check_itself_collision(self,player):
 
-        if len(player) > 5: 
+        """ if len(player) > 5: 
             for p in player:
                 if p.get_appearance() != player[0].get_appearance():
                     if self.__is_colliding(player[0],p):
-                        print("46")
+                        return True """
+        if len(player) > 5: 
+            for p in player:
+                
+                if p.get_appearance() != player[0].get_appearance():
+                    if self.__is_colliding(player[0],p):
+                        
                         return True
         
 
@@ -51,7 +57,6 @@ class Colission:
         
         for e in enemy: 
             if self.__is_colliding(player[0],e) != None:
-                print("54")
                 return self.__is_colliding(player[0],e)
             
 
@@ -61,7 +66,6 @@ class Colission:
             return True
 
         if player[0].get_y_position() < 20 or player[0].get_y_position() > 580:
-            print("64")
             return True
             
 
@@ -70,6 +74,8 @@ class Colission:
             return: bool
         """
         if player.equals(player.get_position(),character.get_position()):
+            """ print(player.get_x_position(),player.get_y_position())
+            print(character.get_x_position(),character.get_y_position()) """
             return True
 
     def get_score(self):

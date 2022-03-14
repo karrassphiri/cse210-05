@@ -12,7 +12,6 @@ class ControlPlayers(Action):
     def execute(self):
 
         collisionPlaOne = Colission(self._players,"playerOne","playerTwo",0,0)
-
         playerOne = self._players.get_character("playerOne")[0]
         playerTwo = self._players.get_character("playerTwo")[0]
         mainBanner = self._players.get_character("mainBanner")[0]
@@ -24,20 +23,13 @@ class ControlPlayers(Action):
                 self._is_playing = False
 
         if collisionPlaOne.check_collision() == "enemy":
-            ##print("enemy")
-            """ print("controlerplayer:")
-            print(playerOne.get_x_position(),playerOne.get_y_position())
-            print(playerTwo.get_x_position(),playerTwo.get_y_position())
-            print("xxxxxxxxxxxxxxx") """
+        
             newDirection = collisionPlaOne.check_free_way(playerOne.get_position(),playerTwo.get_position(),playerOne.get_direction())
             if newDirection != False:
                 playerOne.set_direction(newDirection)
-            else:
-               self._is_playing = False     
-        #actionsPlayerTwo.movement()
-
+            
         actionsPlayerOne.movement(playerOne.get_direction())
-        #actionsPlayerTwo.movement(playerTwo.get_direction())
+        actionsPlayerTwo.movement(playerTwo.get_direction())
         
     def is_game_over(self):
         return self._is_playing

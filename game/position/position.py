@@ -17,7 +17,7 @@ class Position:
     self._x = x
     self._y = y
     self._scale = scale
-
+    self._direction = ""
 
   def set_x_position(self, x):
     self._x = x
@@ -48,8 +48,24 @@ class Position:
     return: bool
     """
 
-    if characterA.get_x_position() == characterB.get_x_position() and characterA.get_y_position() == characterB.get_y_position():
-      return True
+    """ if characterA.get_x_position()+15 == characterB.get_x_position() and characterA.get_y_position()+15 == characterB.get_y_position():
+      return True """
+
+    aCharX = characterA.get_x_position()
+    aCharY = characterA.get_y_position()
+    
+    if self._direction == "x":
+      aCharX = aCharX + self._scale
+    elif self._direction == "-x":
+      aCharX = aCharX - self._scale
+
+    if self._direction == "y":
+      aCharY = aCharY + self._scale
+    elif self._direction == "-y":
+      aCharY = aCharY - self._scale
+        
+    if aCharX == characterB.get_x_position() and aCharY == characterB.get_y_position():
+      return True  
 
   
   def scale_X_position(self, x_direction):
@@ -61,3 +77,9 @@ class Position:
       return self._scale
     elif x_direction < 0:
       return - self._scale
+    
+  def get_direction(self):
+    return self._direction
+
+  def set_direction(self,direction):
+    self._direction = direction

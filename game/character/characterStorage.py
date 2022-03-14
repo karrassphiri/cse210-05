@@ -18,6 +18,8 @@ class CharacterStorage:
             
         if not character in self._characters[group]:
             self._characters[group].append(character)
+        
+        return self._characters[group].index(character)
 
     def get_all_characters(self):
         """ Gets all the groups

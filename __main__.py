@@ -34,17 +34,10 @@ def main():
     x = int((COLS/3)* CELL_SIZE)
     y = int((ROWS/2)* CELL_SIZE)
     mainBanner = Banner(x,int(HEIGHT/2),"",50,RED)
-    """ playerOne = Player("@","playerOne",x,y,CELL_SIZE,FONT_SIZE)
-    playerTwo = Player("@","playerTwo",x + (CELL_SIZE * 20),y,CELL_SIZE,FONT_SIZE)  """
-    
-    playerOneCollider = Player("o","playerOne",x,y+CELL_SIZE,CELL_SIZE,FONT_SIZE)
-    playerTwoCollider = Player("o","playerTwo",x + (CELL_SIZE * 20),y,CELL_SIZE,FONT_SIZE) 
-    playerOne = Player("@","playerOne",x,y,CELL_SIZE,FONT_SIZE)
-    playerTwo = Player("@","playerTwo",x + (CELL_SIZE * 20),y,CELL_SIZE,FONT_SIZE) 
 
-    storage.add_new_character("playerOne",playerOneCollider)
-    storage.add_new_character("playerOne",playerTwoCollider)
-    
+    playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK)
+    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE) 
+
     storage.add_new_character("playerOne",playerOne)
     storage.add_new_character("playerTwo",playerTwo)
     storage.add_new_character("mainBanner",mainBanner)

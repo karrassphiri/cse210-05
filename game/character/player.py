@@ -1,7 +1,5 @@
 from game.character.character import Character
 
-
-from game.character.character import Character
 class Player(Character):
 
   """
@@ -16,7 +14,6 @@ class Player(Character):
 
   def __init__(self,appearance,groupName,x,y,fontSize,scale,color= ""):
       self._groupName = groupName
-      self._direction = ""
       super().__init__(appearance,x,y,fontSize,scale,color)
 
   def get_group_name(self):
@@ -24,9 +21,3 @@ class Player(Character):
           return: Str
       """
       return self._groupName
-  
-  def get_direction(self):
-      return self._direction
-
-  def set_direction(self,direction):
-      self._direction = direction
