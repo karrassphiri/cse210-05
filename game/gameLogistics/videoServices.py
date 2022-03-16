@@ -41,8 +41,8 @@ class VideoServices:
 
     def draw_character(self,item):
         """ This draws a character """
-
-        pyray.draw_text(item.get_appearance(),item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())
+        for i in item.get_appearance():
+            pyray.draw_text(i,item.get_x_position(),item.get_y_position(), item.get_font_size(),item.get_color())
 
     def draw_all_characters(self,characters):
         """ This draws many characters """
@@ -56,3 +56,11 @@ class VideoServices:
 
         for x in range(0, self._width, self._cell_size):
             pyray.draw_line(x, 0, x, self._height, pyray.GRAY)
+    
+    def draw_banner(self,banner):
+        pyray.draw_text(banner.get_message(),banner.get_x_position(),banner.get_y_position(),banner.get_font_size(),banner.get_color())
+
+    def draw_all_banners(self,characters):
+        for banner in characters:
+            self.draw_banner(banner)
+        

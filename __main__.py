@@ -1,6 +1,7 @@
 from game.gameLogistics.script import Script
 from game.gameLogistics.keyboardControl import KeyboardControl
 from game.gameLogistics.playerActions import PlayerActions
+from game.gameLogistics.controlPlayers import ControlPlayers
 from game.gameLogistics.videoServices import VideoServices
 from game.gameLogistics.videoControl import VideoControl
 from game.playGame.director import Director
@@ -14,31 +15,57 @@ HEIGHT = 600
 GAME_NAME = "CYCLE"
 FRAME = 12
 CELL_SIZE = 15
-def main():
+FONT_SIZE = 15
+BLACK = (3,3,3,1)
+WHITE = (255,255,255,200)
+COLS = (WIDTH/CELL_SIZE)
+ROWS = (HEIGHT/CELL_SIZE)
+RED = (255,0,0,200)
+SCORE = 3
 
+def main():
 
     storage = CharacterStorage()
     script = Script()
     videoServices = VideoServices(WIDTH,HEIGHT,GAME_NAME,FRAME,CELL_SIZE)
-    """ creates the character: """
-    playerOne = Player("@","playerOne",210,210,15,15)
-    playerTwo = Player("@","playerTwo",410,410,15,15)
-    bannerOne = Banner()
-    bannerTwo = Banner()
 
-    storage.add_new_character("player_one",playerOne)
-    storage.add_new_character("player_two",playerTwo)
-    storage.add_new_character("banner_one",bannerOne)
-    storage.add_new_character("banner_two",bannerTwo)
+    x = int((COLS/3)* CELL_SIZE)
+    y = int((ROWS/2)* CELL_SIZE)
+    mainBanner = Banner(x,int(HEIGHT/2),"",50,RED)
+    scoreBannerOne = Banner(0,0,"Player one: ",20,WHITE)
+    scoreBannerOne.add_to_message(str(SCORE))
+    scoreBannerTwo = Banner(int((COLS*12)),0,"Player two: ", 20, WHITE)
+    scoreBannerTwo.add_to_message(str(SCORE))
+
+    for i in range(HEIGHT):
+        windowWalls = Banner(0,int(i*CELL_SIZE),"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+        
+        windowWalls = Banner(int(WIDTH-CELL_SIZE),int(i*CELL_SIZE),"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+
+    for i in range(WIDTH):
+        windowWalls = Banner(int(i*CELL_SIZE),CELL_SIZE,"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+        windowWalls = Banner(int(i*CELL_SIZE),int(HEIGHT-CELL_SIZE),"x",CELL_SIZE,WHITE)
+        storage.add_new_character("windowWalls",windowWalls)
+
+    playerOne = Player("0","playerOne",x,y+CELL_SIZE,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
+    playerTwo = Player("0","playerTwo",x + (CELL_SIZE * 20),y,FONT_SIZE,CELL_SIZE,BLACK,SCORE)
+
+    storage.add_new_character("playerOne",playerOne)
+    storage.add_new_character("playerTwo",playerTwo)
+    storage.add_new_character("mainBanner",mainBanner)
+    storage.add_new_character("scoreBannerOne",scoreBannerOne)
+    storage.add_new_character("scoreBannerTwo",scoreBannerTwo)
+    
+    
     script.add_action("input",KeyboardControl(storage))
-    script.add_action("update",PlayerActions(playerOne))
-    script.add_action("update",PlayerActions(playerTwo))
-    script.add_action("update",PlayerActions(bannerOne))
-    script.add_action("update",PlayerActions(bannerTwo))
-    script.add_action("output",VideoControl(videoServices))
+    script.add_action("update",ControlPlayers(storage,CELL_SIZE))
+    script.add_action("output",VideoControl(videoServices,storage))
 
     director = Director(videoServices,script)
-    director.start_game(storage)
+    director.start_game()
 
 
 main()
