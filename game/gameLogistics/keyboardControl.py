@@ -13,7 +13,7 @@ class KeyboardControl(Action):
         playerOne = self._character_storage.get_character("playerOne")[0]
         playerTwo = self._character_storage.get_character("playerTwo")[0]        
 
-        if playerOne.get_axis() == "" or playerTwo.get_axis() =="":
+        if playerOne.get_axis() == "" or playerTwo.get_axis() == "":
                 playerOne.set_axis("y")
                 playerTwo.set_axis("y")
     
@@ -21,7 +21,7 @@ class KeyboardControl(Action):
             
             keyboard.get_input()
 
-            direction = keyboard.get_direction()+keyboard.get_axis()
+            direction = keyboard.get_direction() + keyboard.get_axis()
             
             if keyboard.get_player() == 1:                
                 if playerOne.get_axis() != keyboard.get_axis():

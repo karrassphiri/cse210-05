@@ -69,10 +69,10 @@ class PlayerActions():
         return GameOver(mainBanner).game_over()
 
     def lose_points(self,player,playerBanner):
-        scoreControler = Score(1)
+        scoreControler = Score(0)
         score = scoreControler.lose_point(player.get_score())
         playerBanner.add_to_message(str(score))
-        self.__player_lose_point(player,score)
+        self.__player_lose_point(player, score)
         
     def __player_lose_point(self,player,score):
         player.set_score(score)

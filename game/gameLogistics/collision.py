@@ -102,7 +102,7 @@ class Colission:
                 else:
                     newDirection = False
 
-            if playerDirection == "x" or playerDirection == "x":    
+            if playerDirection == "x" or playerDirection == "-x":    
                 if (player[0].get_y_position()+ 15) != p.get_y_position():
                     for e in enemy:
                         if (player[0].get_y_position()+ 15) !=  e.get_y_position():
