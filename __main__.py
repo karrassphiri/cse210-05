@@ -59,7 +59,6 @@ def main():
     storage.add_new_character("scoreBannerOne",scoreBannerOne)
     storage.add_new_character("scoreBannerTwo",scoreBannerTwo)
     
-    
     script.add_action("input",KeyboardControl(storage))
     script.add_action("update",ControlPlayers(storage,CELL_SIZE))
     script.add_action("output",VideoControl(videoServices,storage))

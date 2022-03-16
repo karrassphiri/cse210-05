@@ -1,3 +1,4 @@
+from doctest import FAIL_FAST
 from game.gameLogistics.playerActions import PlayerActions
 from game.gameLogistics.collision import Colission
 from game.playGame.action import Action
@@ -30,7 +31,6 @@ class ControlPlayers(Action):
 
         """ Player one behaviors """
         if playerOne.get_score() < 0 or playerTwo.get_score() < 0:
-
             self._is_playing = False        
            
         
